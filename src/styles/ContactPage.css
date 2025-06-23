@@ -1,0 +1,192 @@
+.contact-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: whitesmoke;
+  color: black;
+  overflow-x: hidden;
+}
+
+.contact-hero {
+  background: linear-gradient(135deg, rgb(34, 29, 29), #37168b);
+  padding: 5rem 2rem;
+  text-align: center;
+  color: white;
+  animation: slideDown 1s ease;
+}
+
+.contact-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-hero p {
+  font-size: 1.2rem;
+}
+
+.contact-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.contact-details,
+.contact-form-container,
+.contact-meet-developer {
+  margin-bottom: 4rem;
+}
+
+.contact-details h2,
+.contact-form-container h2,
+.contact-meet-developer h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  margin-right: 8px;
+  color: #37168b;
+}
+
+.contact-details p,
+.developer-info p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.contact-details a,
+.developer-info a {
+  color: #333;
+  text-decoration: none;
+}
+
+.contact-socials {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.contact-socials a {
+  font-size: 1.5rem;
+  color: #37168b;
+  transition: transform 0.2s;
+}
+
+.contact-socials a:hover {
+  transform: scale(1.2);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  padding: 0.75rem;
+  background-color: #37168b;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #28106b;
+}
+
+.contact-meet-developer {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.contact-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+.contact-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.contact-image img:hover {
+  transform: scale(1.05);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .contact-meet-developer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-text,
+  .contact-image {
+    text-align: center;
+  }
+
+  .contact-image img {
+    max-width: 300px;
+  }
+
+  .contact-form-container {
+    padding: 0 1rem;
+  }
+
+  /* ✅ Center social icons on mobile */
+  .contact-socials {
+    justify-content: center;
+  }
+}
