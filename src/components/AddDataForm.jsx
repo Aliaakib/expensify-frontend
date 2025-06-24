@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import "../styles/AddDataForm.css";
 
 const AddDataForm = ({ onAdd }) => {
   const [formData, setFormData] = useState({
     name: "",
     paymentMode: "",
-    date: "",
+    date: null,
     amount: "",
   });
 
@@ -13,15 +15,14 @@ const AddDataForm = ({ onAdd }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleDateChange = (selectedDate) => {
+    setFormData({ ...formData, date: selectedDate });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd(formData);
-    setFormData({
-      name: "",
-      paymentMode: "",
-      date: "",
-      amount: "",
-    });
+    onAdd({ ...formData, date: formData.date?.toISOString().split("T")[0] });
+    setFormData({ name: "", paymentMode: "", date: null, amount: "" });
   };
 
   return (
@@ -53,17 +54,14 @@ const AddDataForm = ({ onAdd }) => {
         <option value="cheque">Cheque</option>
       </select>
 
-      <div className="date-wrapper">
-        <input
-          type="date"
-          name="date"
-          className={`form-input ${!formData.date ? "placeholder-shown" : ""}`}
-          value={formData.date}
-          onChange={handleChange}
-          required
-        />
-        {!formData.date && <span className="date-placeholder">Pick Date</span>}
-      </div>
+      <DatePicker
+        selected={formData.date}
+        onChange={handleDateChange}
+        placeholderText="Pick a date"
+        className="form-input"
+        dateFormat="yyyy-MM-dd"
+        required
+      />
 
       <input
         type="number"
