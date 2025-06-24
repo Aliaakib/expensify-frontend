@@ -4,6 +4,7 @@
   background-color: whitesmoke;
   min-height: 100vh;
   box-sizing: border-box;
+  opacity: 1;
 }
 
 /* ===== Header ===== */
@@ -92,6 +93,7 @@
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
   min-height: 200px;
+  opacity: 1;
 }
 
 /* ===== Error Text ===== */
@@ -100,8 +102,8 @@
   font-weight: bold;
 }
 
-/* ===== Mobile Animations (Only ≤600px) ===== */
-@media (max-width: 600px) {
+/* ===== Responsive Animations: Mobile (≤600px) and Medium (≤992px) ===== */
+@media (max-width: 992px) {
   .record-detail-container {
     animation: fadeSlideUp 0.8s ease-out both;
   }

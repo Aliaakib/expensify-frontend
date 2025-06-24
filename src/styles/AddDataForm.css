@@ -1,8 +1,9 @@
+/* ===== Global Box Sizing ===== */
 * {
   box-sizing: border-box;
 }
 
-/* Form Container */
+/* ===== Form Container ===== */
 .form-container {
   display: flex;
   flex-direction: column;
@@ -14,8 +15,10 @@
   margin: 2rem auto;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
+  opacity: 1;
 }
 
+/* ===== Heading ===== */
 .form-container h2 {
   text-align: center;
   font-size: 1.5rem;
@@ -23,7 +26,7 @@
   color: #1a1a1a;
 }
 
-/* Input Fields */
+/* ===== Input Fields ===== */
 .form-input {
   padding: 0.75rem 1rem;
   border-radius: 6px;
@@ -36,19 +39,19 @@
   position: relative;
 }
 
-/* Focus State */
+/* ===== Input Focus ===== */
 .form-input:focus {
   border-color: #666;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Select */
+/* ===== Select Input ===== */
 select.form-input {
   transition: none !important;
   animation: none !important;
 }
 
-/* ========== Date Input Styling ========== */
+/* ===== Date Input with Placeholder ===== */
 .date-wrapper {
   position: relative;
 }
@@ -76,7 +79,7 @@ select.form-input {
   z-index: 1;
 }
 
-/* Calendar icon fixes */
+/* ===== Hide Native Calendar Icon ===== */
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
   z-index: 3;
@@ -86,12 +89,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
-/* Firefox */
+/* ===== Firefox ===== */
 input[type="date"]::-moz-calendar-picker-indicator {
   filter: invert(0.5);
 }
 
-/* Submit Button */
+/* ===== Submit Button ===== */
 .form-btn {
   padding: 0.75rem;
   background-color: #1a1a1a;
@@ -110,11 +113,12 @@ input[type="date"]::-moz-calendar-picker-indicator {
   transform: scale(1.02);
 }
 
-/* Responsive: Tablets */
+/* ===== Tablet Responsive (≤768px) ===== */
 @media (max-width: 768px) {
   .form-container {
     padding: 1.5rem;
     margin: 1.5rem;
+    animation: slideFadeIn 0.9s ease-out both;
   }
 
   .form-input,
@@ -127,7 +131,7 @@ input[type="date"]::-moz-calendar-picker-indicator {
   }
 }
 
-/* Responsive: Mobile */
+/* ===== Mobile Responsive (≤480px) ===== */
 @media (max-width: 480px) {
   .form-container {
     padding: 1rem;
@@ -157,7 +161,7 @@ input[type="date"]::-moz-calendar-picker-indicator {
   }
 }
 
-/* Animation */
+/* ===== Slide + Fade In Animation ===== */
 @keyframes slideFadeIn {
   from {
     opacity: 0;
@@ -169,6 +173,7 @@ input[type="date"]::-moz-calendar-picker-indicator {
   }
 }
 
+/* ===== React DatePicker Custom Input (if used) ===== */
 .react-datepicker-wrapper {
   width: 100%;
 }

@@ -4,39 +4,12 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Moved up slightly */
+  align-items: flex-start;
   padding: 3rem 2rem 2rem;
   opacity: 1;
 }
 
-/* Small Devices: Apply animation only on container and form */
-@media (max-width: 600px) {
-  .register-container {
-    animation: fadeInPage 1s ease-in-out forwards;
-    opacity: 0;
-  }
-
-  .register-form {
-    animation: slideUp 0.8s ease-out;
-    transform: translateY(20px);
-    opacity: 0;
-    animation-fill-mode: forwards;
-  }
-}
-
-@keyframes fadeInPage {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
+/* 🔹 Register Form Container */
 .register-form {
   background-color: #fff;
   padding: 2rem;
@@ -45,8 +18,8 @@
   max-width: 400px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  margin-top: 2rem; /* Instead of aligning center, add top margin */
-  margin-bottom: 80px; /* Reduced from 120px to move it slightly up */
+  margin-top: 2rem;
+  margin-bottom: 80px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -57,6 +30,7 @@
   font-size: 1.5rem;
 }
 
+/* 🔹 Input with Icon Wrapper */
 .input-icon {
   position: relative;
   margin: 0.5rem 0;
@@ -75,7 +49,6 @@
   box-sizing: border-box;
 }
 
-/* Left icon */
 .input-icon svg:first-child {
   position: absolute;
   top: 50%;
@@ -86,7 +59,6 @@
   font-size: 1.1rem;
 }
 
-/* Right eye icon */
 .eye-icon {
   position: absolute;
   top: 50%;
@@ -97,6 +69,7 @@
   color: #555;
 }
 
+/* 🔹 Register Button */
 .register-btn {
   width: 100%;
   padding: 0.75rem;
@@ -121,59 +94,6 @@
   margin-bottom: 1rem;
 }
 
-/* 🔹 Tablets (medium) */
-@media (max-width: 992px) {
-  .register-form {
-    padding: 1.75rem;
-    max-width: 90%;
-  }
-
-  .register-form h2 {
-    font-size: 1.4rem;
-  }
-
-  .register-btn {
-    font-size: 0.95rem;
-  }
-}
-
-/* 🔹 Phones (small) */
-@media (max-width: 600px) {
-  .register-form {
-    padding: 1.5rem;
-    max-width: 100%;
-  }
-
-  .register-form h2 {
-    font-size: 1.3rem;
-  }
-
-  .register-btn {
-    font-size: 0.9rem;
-  }
-
-  .input-icon input {
-    font-size: 0.95rem;
-    padding-left: 2.2rem;
-    padding-right: 2.2rem;
-  }
-
-  .eye-icon {
-    font-size: 1rem;
-    right: 0.6rem;
-  }
-
-  .input-icon svg:first-child {
-    font-size: 1rem;
-    left: 0.6rem;
-  }
-}
-
-/* Login form specific tweak: reduce bottom margin */
-.login-form {
-  margin-bottom: 220px;
-}
-
 .input-icon.input-error input {
   border: 1px solid red;
 }
@@ -185,6 +105,7 @@
   margin-left: 4px;
 }
 
+/* 🔹 OTP Popup */
 .otp-popup {
   position: fixed;
   top: 0;
@@ -244,9 +165,97 @@
   color: #0056b3;
 }
 
-/* Align only the forgot password link to the left */
+/* Align forgot password left */
 .forgot-link {
   text-align: center;
   margin-top: 10px;
-  padding-left: 4px; /* Optional small indent */
+  padding-left: 4px;
+}
+
+/* ✅ Animation Keyframes */
+@keyframes fadeInPage {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ✅ Mobile: Animate container & form */
+@media (max-width: 600px) {
+  .register-container {
+    animation: fadeInPage 1s ease-in-out forwards;
+    opacity: 0;
+  }
+
+  .register-form {
+    animation: slideUp 0.8s ease-out;
+    transform: translateY(20px);
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  .register-form {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .register-form h2 {
+    font-size: 1.3rem;
+  }
+
+  .register-btn {
+    font-size: 0.9rem;
+  }
+
+  .input-icon input {
+    font-size: 0.95rem;
+    padding-left: 2.2rem;
+    padding-right: 2.2rem;
+  }
+
+  .eye-icon {
+    font-size: 1rem;
+    right: 0.6rem;
+  }
+
+  .input-icon svg:first-child {
+    font-size: 1rem;
+    left: 0.6rem;
+  }
+}
+
+/* ✅ Tablets: Add same animation as mobile */
+@media (max-width: 992px) {
+  .register-container {
+    animation: fadeInPage 1s ease-in-out forwards;
+    opacity: 0;
+  }
+
+  .register-form {
+    animation: slideUp 0.8s ease-out;
+    transform: translateY(20px);
+    opacity: 0;
+    animation-fill-mode: forwards;
+    padding: 1.75rem;
+    max-width: 90%;
+  }
+
+  .register-form h2 {
+    font-size: 1.4rem;
+  }
+
+  .register-btn {
+    font-size: 0.95rem;
+  }
+}
+
+/* Optional: Login page specific tweak */
+.login-form {
+  margin-bottom: 220px;
 }

@@ -3,20 +3,33 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { createRecord } from "../services/recordService";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import "../styles/NewRecordPage.css";
 
 const NewRecordPage = () => {
   const navigate = useNavigate();
-  const [record, setRecord] = useState({ name: "", date: "" });
+  const [record, setRecord] = useState({
+    name: "",
+    date: null,
+  });
 
   const handleChange = (e) => {
     setRecord({ ...record, [e.target.name]: e.target.value });
   };
 
+  const handleDateChange = (selectedDate) => {
+    setRecord({ ...record, date: selectedDate });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await createRecord(record);
+      const payload = {
+        ...record,
+        date: record.date?.toISOString().split("T")[0], // convert to yyyy-mm-dd
+      };
+      await createRecord(payload);
       toast.success("Record created successfully!");
       navigate("/dashboard");
     } catch (err) {
@@ -31,6 +44,7 @@ const NewRecordPage = () => {
         <div className="new-record-header">
           <h2>Create New Record</h2>
         </div>
+
         <input
           type="text"
           name="name"
@@ -39,13 +53,16 @@ const NewRecordPage = () => {
           onChange={handleChange}
           required
         />
-        <input
-          type="date"
-          name="date"
-          value={record.date}
-          onChange={handleChange}
+
+        <DatePicker
+          selected={record.date}
+          onChange={handleDateChange}
+          placeholderText="Pick a date"
+          className="new-record-input"
+          dateFormat="yyyy-MM-dd"
           required
         />
+
         <button type="submit" className="new-record-btn">
           Create Record
         </button>
