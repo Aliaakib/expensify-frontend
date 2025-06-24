@@ -47,7 +47,9 @@ const RecordDetailPage = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.delete(
-        `http://localhost:5000/api/records/${id}/expenses/${expenseId}`,
+        `${
+          import.meta.env.VITE_REACT_APP_API_URL
+        }/api/records/${id}/expenses/${expenseId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
