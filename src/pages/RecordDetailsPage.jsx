@@ -39,7 +39,13 @@ const RecordDetailPage = () => {
     fetchRecord();
   }, [id, refresh]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="loader-wrapper">
+        <span className="loader"></span>
+      </div>
+    );
+
   if (error) return <p className="error">{error}</p>;
   if (!record) return <p>No record found.</p>;
 
@@ -100,17 +106,15 @@ const RecordDetailPage = () => {
             onDataUpdated={() => setRefresh((prev) => !prev)}
           />
         ) : (
-          <>
-            <ExpenseTable
-              data={record.expenses || []}
-              recordId={id}
-              onDelete={handleDeleteExpense}
-              donationTotal={(record.data || []).reduce(
-                (acc, d) => acc + Number(d.amount),
-                0
-              )}
-            />
-          </>
+          <ExpenseTable
+            data={record.expenses || []}
+            recordId={id}
+            onDelete={handleDeleteExpense}
+            donationTotal={(record.data || []).reduce(
+              (acc, d) => acc + Number(d.amount),
+              0
+            )}
+          />
         )}
       </div>
     </div>
