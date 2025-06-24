@@ -142,3 +142,36 @@
     transform: rotate(-45deg) translateY(-8px);
   }
 }
+
+/* MEDIUM DEVICES (TABLETS): Align Navbar Links Better */
+@media (max-width: 992px) and (min-width: 769px) {
+  .exp-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .exp-navbar-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .exp-navbar-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1rem;
+    max-height: none;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .exp-navbar-links a,
+  .exp-navbar-links button {
+    width: 100%;
+    text-align: left;
+    font-size: 1.05rem;
+    padding: 0.5rem 0;
+  }
+}
