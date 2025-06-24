@@ -12,7 +12,7 @@ const AddExpensePage = () => {
   const handleAddExpense = async (expenseData) => {
     const token = localStorage.getItem("token");
     await axios.post(
-      `http://localhost:5000/api/records/${id}/add-expense`,
+      `${import.meta.env.VITE_REACT_APP_API_URL}/api/records/${id}/add-expense`,
       expenseData,
       {
         headers: { Authorization: `Bearer ${token}` },
