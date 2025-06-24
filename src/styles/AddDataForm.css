@@ -1,3 +1,8 @@
+/* ======= Global Box Sizing ======= */
+* {
+  box-sizing: border-box;
+}
+
 /* ======= Shared Form Container ======= */
 .form-container {
   display: flex;
@@ -38,10 +43,27 @@
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
 }
 
-/* ======= Remove All Animation/Transition from Dropdowns ======= */
+/* ======= Dropdown/Select Fields ======= */
 select.form-input {
   transition: none !important;
   animation: none !important;
+}
+
+/* ======= Date Input Styling ======= */
+input[type="date"].form-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  color: #333;
+  font-family: inherit;
+}
+
+/* Optional: Adjust calendar icon on WebKit browsers */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  filter: invert(0.5);
+  cursor: pointer;
 }
 
 /* ======= Submit Button ======= */
@@ -63,7 +85,7 @@ select.form-input {
   transform: scale(1.02);
 }
 
-/* ======= Responsive: Tablets ======= */
+/* ======= Responsive: Tablets (max-width: 768px) ======= */
 @media (max-width: 768px) {
   .form-container {
     padding: 1.5rem;
@@ -75,14 +97,16 @@ select.form-input {
     font-size: 0.95rem;
   }
 
-  /* Ensure dropdowns on tablets still have no animation */
-  select.form-input {
+  select.form-input,
+  input[type="date"].form-input {
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
     transition: none !important;
     animation: none !important;
   }
 }
 
-/* ======= Responsive: Mobile (with Animation) ======= */
+/* ======= Responsive: Mobile (max-width: 480px) ======= */
 @media (max-width: 480px) {
   .form-container {
     padding: 1rem;
@@ -106,8 +130,10 @@ select.form-input {
     font-size: 1.3rem;
   }
 
-  /* Ensure dropdowns on small devices have no animation */
-  select.form-input {
+  select.form-input,
+  input[type="date"].form-input {
+    font-size: 0.9rem;
+    padding: 0.65rem 0.85rem;
     transition: none !important;
     animation: none !important;
   }
@@ -124,4 +150,3 @@ select.form-input {
     transform: translateY(0);
   }
 }
-  
