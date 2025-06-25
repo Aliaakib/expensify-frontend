@@ -1,8 +1,4 @@
-/* NAVBAR BASE */
 .exp-navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: #000;
   color: white;
   padding: 1rem 2rem;
@@ -12,50 +8,87 @@
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Hide animation */
 .navbar-hidden {
   transform: translateY(-100%);
   opacity: 0;
 }
 
-/* BRAND */
+.exp-navbar-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .exp-navbar-brand {
   font-size: 1.6rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
   color: white;
-  text-decoration: none;
+  cursor: pointer;
 }
 
-/* LINKS LIST */
+/* Hamburger */
+.exp-navbar-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.exp-navbar-toggle span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.exp-navbar-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.exp-navbar-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.exp-navbar-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Links */
 .exp-navbar-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
-/* LINK / BUTTON */
 .exp-navbar-links a,
 .exp-navbar-links button {
   color: white;
-  text-decoration: none;
-  font-size: 1rem;
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  position: relative;
   padding: 0.3rem 0.5rem;
   transition: all 0.3s ease;
-  position: relative;
+}
+
+.exp-navbar-links a:hover,
+.exp-navbar-links button:hover {
+  color: #f0f0f0;
+  transform: scale(1.05);
 }
 
 .exp-navbar-links a::after,
 .exp-navbar-links button::after {
   content: "";
   position: absolute;
-  left: 0;
   bottom: -4px;
+  left: 0;
   width: 0%;
   height: 2px;
   background-color: white;
@@ -67,111 +100,60 @@
   width: 100%;
 }
 
-.exp-navbar-links a:hover,
-.exp-navbar-links button:hover {
-  color: #f0f0f0;
-  transform: scale(1.05);
-}
-
-/* HAMBURGER MENU BUTTON */
-.exp-navbar-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.exp-navbar-toggle span {
-  height: 3px;
-  width: 25px;
-  background: white;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* MOBILE RESPONSIVE */
+/* Responsive */
 @media (max-width: 768px) {
   .exp-navbar {
-    flex-direction: column;
-    align-items: flex-start;
     padding: 1rem;
   }
 
   .exp-navbar-toggle {
     display: flex;
-    margin-left: auto;
   }
 
   .exp-navbar-links {
     flex-direction: column;
     width: 100%;
-    gap: 0.75rem;
-    margin-top: 1rem;
-    overflow: hidden;
     max-height: 0;
     opacity: 0;
-    transform: translateY(-10px);
-    transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
     pointer-events: none;
+    margin-top: 1rem;
+    transform: translateY(-10px);
   }
 
   .exp-navbar-links.open {
     max-height: 500px;
     opacity: 1;
-    transform: translateY(0);
     pointer-events: auto;
+    transform: translateY(0);
   }
 
   .exp-navbar-links a,
   .exp-navbar-links button {
     width: 100%;
     text-align: left;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     padding: 0.5rem 0;
-  }
-
-  .exp-navbar-toggle.open span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-  }
-
-  .exp-navbar-toggle.open span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .exp-navbar-toggle.open span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
   }
 }
 
-/* MEDIUM DEVICES (TABLETS): Align Navbar Links Better */
+/* Medium (Tablet) */
 @media (max-width: 992px) and (min-width: 769px) {
   .exp-navbar {
-    flex-direction: column;
-    align-items: flex-start;
     padding: 1rem;
-  }
-
-  .exp-navbar-toggle {
-    display: flex;
-    margin-left: auto;
   }
 
   .exp-navbar-links {
     flex-direction: column;
-    width: 100%;
     gap: 1rem;
+    width: 100%;
     margin-top: 1rem;
-    max-height: none;
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
   }
 
   .exp-navbar-links a,
   .exp-navbar-links button {
     width: 100%;
     text-align: left;
-    font-size: 1.05rem;
-    padding: 0.5rem 0;
   }
 }
