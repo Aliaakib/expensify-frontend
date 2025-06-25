@@ -14,7 +14,6 @@ const Navbar = () => {
     setIsLoggedIn(!!token);
   }, [location]);
 
-  // Scroll detection logic
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
@@ -22,16 +21,15 @@ const Navbar = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 60) {
-        setHideNavbar(true); // scroll down
+        setHideNavbar(true);
       } else {
-        setHideNavbar(false); // scroll up
+        setHideNavbar(false);
       }
 
       lastScrollY = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -53,21 +51,22 @@ const Navbar = () => {
 
   return (
     <nav className={`exp-navbar ${hideNavbar ? "navbar-hidden" : ""}`}>
-      <div
-        className="exp-navbar-brand"
-        onClick={handleLogoClick}
-        style={{ cursor: "pointer" }}
-      >
-        Expensify
-      </div>
-
-      <div
-        className={`exp-navbar-toggle ${isOpen ? "open" : ""}`}
-        onClick={handleToggle}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
+      <div className="exp-navbar-top">
+        <div
+          className="exp-navbar-brand"
+          onClick={handleLogoClick}
+          style={{ cursor: "pointer" }}
+        >
+          Expensify
+        </div>
+        <div
+          className={`exp-navbar-toggle ${isOpen ? "open" : ""}`}
+          onClick={handleToggle}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
 
       <ul className={`exp-navbar-links ${isOpen ? "open" : ""}`}>
