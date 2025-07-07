@@ -7,7 +7,7 @@ const HomePage = () => {
     <div className="home-wrapper">
       <header className="home-hero">
         <div className="home-hero-text">
-          <h1>Welcome to Expencify</h1>
+          <h1>Welcome to Expensify</h1>
           <p>Your smart solution to manage records and expenses with ease.</p>
           <Link to="/register" className="home-hero-btn">
             Get Started
