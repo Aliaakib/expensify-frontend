@@ -20,7 +20,7 @@ const HomePage = () => {
           <div className="home-text">
             <h2>Track Records Seamlessly</h2>
             <p>
-              Expencify provides an intuitive and reliable system to
+              Expensify provides an intuitive and reliable system to
               effortlessly track, log, and maintain all your financial records
               in a central location, ensuring complete transparency and easy
               accessibility across various devices and users.
@@ -54,7 +54,7 @@ const HomePage = () => {
           <div className="home-text">
             <h2>Clean UI. Simple Navigation.</h2>
             <p>
-              Expencify boasts a modern and minimalist user interface built for
+              Expensify boasts a modern and minimalist user interface built for
               speed, clarity, and usability, helping users navigate through
               financial records, switch between income and expense views, and
               retrieve information quickly and efficiently.

@@ -17,7 +17,7 @@ const AboutPage = () => {
   return (
     <div className="about-container">
       <header className="about-hero">
-        <h1>About Expencify</h1>
+        <h1>About Expensify</h1>
         <p>
           Smart, secure, and intuitive expense management — built for impact.
         </p>
@@ -75,7 +75,7 @@ const AboutPage = () => {
       <footer className="about-footer">
         <p>
           💡 Start managing your donations and expenses the smart way — only
-          with Expencify.
+          with Expensify.
         </p>
       </footer>
     </div>
